@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /*   */  
+    .circle{
+     height: 150px;
+     width: 100px;
+     background-color: blue;
+     border-radius: 100%;
+     display: inline-block;
+     border: 2px solid  black;
+     padding-left: 40px;
+     margin-left: 150px;
+     margin-top: 150px;
+     position: relative;
+    }
+
+    .arrow{
+     height: 100px;
+     width: 100px;
+     font-size: 120px;
+     padding-left: 700px;
+     position: absolute;
+     top: 280px;
+    }
+    
+    .rectangle{
+     border: 2px solid  black;
+     padding: 50px 60px 160px 10px;
+    }
+    .btn1{
+        width: 40px;
+        height: 30px;
+    }
+    .btn2{
+        width: 60px;
+        height: 30px;
+    }
+
+
+ </style>
+<body>
+    <h1 style="text-align:center">Bubble App</h1>
+  
+<div class="rectangle" id="rectangle">
+   <div id="result">
+    <span class="circle"></span>
+    <span class="arrow">&#8592</span>
+   </div>
+</div>
+        
+    </div>
+<div style="padding-left: 1080px;padding-top:20px">
+   
+        <button class="btn1" id="botton1">Hit</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <button class="btn2" id="botton2">Reset</button>
+</div>
+ 
+<!--javascript part -->
+ <script >
+
+const botton1=document.getElementById("botton1");
+const botton2=document.getElementById("botton2");
+const result= document.getElementById("result");
+
+const xhr= new XMLHttpRequest();
+
+const event1 = function(){
+    xhr.onload = function(){
+if(xhr.status==200 && xhr.readyState==4){
+    result.innerHTML=xhr.responseText;
+}
+
+};
+
+xhr.send();
+}
+
+// Hit button 
+
+botton1.addEventListener("click",function(){
+    xhr.open("GET","./hit.html",true)          //hit.html page
+    event1();
+})
+
+// Reset button
+botton2.addEventListener("click",function(){
+    xhr.open("GET","./reset1.html",true)      //reset1.html page
+    event1();
+})
+
+    </script>
+</body>
+</html>
